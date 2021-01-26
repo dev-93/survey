@@ -1,10 +1,19 @@
 import React from 'react';
-import { atom, selector, useRecoilState } from 'recoil';
+import { atom, selector, useRecoilState, useRecoilValue } from 'recoil';
 import styled from 'styled-components';
 
 const textState = atom({
-    key: 'textState', // unique ID (with respect to other atoms/selectors)
-    default: '', // default value (aka initial value)
+    key: 'textState',
+    default: '',
+});
+
+const charCountState = selector({
+    key: 'charCountState',
+    get: ({get}) => {
+      const text = get(textState);
+  
+      return text.length;
+    },
 });
 
 function TextInput() {
@@ -21,13 +30,19 @@ function TextInput() {
         Echo: {text}
       </div>
     );
-}
+};
+
+function CharacterCount() {
+    const count = useRecoilValue(charCountState);
+  
+    return <>Character Count: {count}</>;
+};
 
 const Counter = () => {
     return(
         <Wrap>
             <TextInput />
-            {/* <CharacterCount /> */}
+            <CharacterCount />
         </Wrap>
     );
 };
