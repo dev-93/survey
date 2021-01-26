@@ -2,6 +2,11 @@
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
+This project was made with Typescript + React,
+Design Framework: Antd,
+State Library: Recoil
+
+
 ## Available Scripts
 
 In the project directory, you can run:
