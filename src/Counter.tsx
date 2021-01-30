@@ -16,6 +16,8 @@ const charCountState = selector({
   },
 });
 
+// 컴포넌트 분리하기
+
 function TextInput() {
   const [text, setText] = useRecoilState(textState);
 
